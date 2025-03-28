@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import AskQuestion from '@/components/AskQuestion';
-import { QuestionMarkIcon } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 const AskPage = () => {
   return (
@@ -16,7 +16,7 @@ const AskPage = () => {
             <div className="mb-12 text-center">
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-vastu-gold rounded-full flex items-center justify-center">
-                  <QuestionMarkIcon size={32} className="text-vastu-maroon" />
+                  <HelpCircle size={32} className="text-vastu-maroon" />
                 </div>
               </div>
               
