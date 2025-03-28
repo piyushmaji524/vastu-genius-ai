@@ -3,8 +3,9 @@ import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Mic, MicOff, Send, Volume2, Loader } from 'lucide-react';
+import { Mic, MicOff, Send, Volume2, VolumeX, Loader } from 'lucide-react';
 import { toast } from 'sonner';
+import { Switch } from '@/components/ui/switch';
 
 const GEMINI_API_KEY = 'AIzaSyD1SFLhp2Us8anc0ohgS9LcakID-h-4N9c';
 
@@ -13,17 +14,26 @@ const VastuAssistant = () => {
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string}[]>([]);
   const [isListening, setIsListening] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [voiceEnabled, setVoiceEnabled] = useState(true);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Function to speak the message
   const speakMessage = (text: string) => {
-    if ('speechSynthesis' in window) {
+    if ('speechSynthesis' in window && voiceEnabled) {
       const speech = new SpeechSynthesisUtterance(text);
       speech.lang = 'hi-IN';
+      
+      // Try to use a female voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const femaleVoice = voices.find(voice => 
+        voice.lang.includes('hi') && voice.name.includes('female'));
+      
+      if (femaleVoice) {
+        speech.voice = femaleVoice;
+      }
+      
       window.speechSynthesis.speak(speech);
-    } else {
-      toast.error('आपका ब्राउज़र वॉयस असिस्टेंट का समर्थन नहीं करता है।');
     }
   };
 
@@ -116,10 +126,12 @@ const VastuAssistant = () => {
         // Add assistant message to the chat
         setMessages(prev => [...prev, {role: 'assistant', content: aiResponse}]);
         
-        // Speak the response
-        setTimeout(() => {
-          speakMessage(aiResponse);
-        }, 500);
+        // Speak the response if voice is enabled
+        if (voiceEnabled) {
+          setTimeout(() => {
+            speakMessage(aiResponse);
+          }, 500);
+        }
       } else {
         throw new Error('No response from AI');
       }
@@ -133,14 +145,39 @@ const VastuAssistant = () => {
     }
   };
 
+  // Toggle voice function
+  const toggleVoice = () => {
+    setVoiceEnabled(!voiceEnabled);
+    if (!voiceEnabled) {
+      toast.success('आवाज चालू की गई');
+    } else {
+      // Stop any ongoing speech when turning voice off
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      toast.success('आवाज बंद की गई');
+    }
+  };
+
   return (
     <div className="h-[600px] max-w-2xl mx-auto flex flex-col">
       <Card className="flex-1 border-vastu-gold/30 overflow-hidden flex flex-col">
-        <div className="bg-gradient-to-r from-vastu-brown to-vastu-maroon p-3 text-vastu-cream flex items-center">
-          <div className="w-8 h-8 bg-vastu-gold rounded-full flex items-center justify-center mr-2">
-            <span className="text-vastu-maroon text-sm font-bold">वा</span>
+        <div className="bg-gradient-to-r from-vastu-brown to-vastu-maroon p-3 text-vastu-cream flex items-center justify-between">
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-vastu-gold rounded-full flex items-center justify-center mr-2">
+              <span className="text-vastu-maroon text-sm font-bold">वा</span>
+            </div>
+            <h3 className="font-yatra">वास्तु AI सहायक</h3>
           </div>
-          <h3 className="font-yatra">वास्तु AI सहायक</h3>
+          <div className="flex items-center gap-2">
+            <span className="text-xs">{voiceEnabled ? 'आवाज़ चालू' : 'आवाज़ बंद'}</span>
+            <div className="flex items-center" onClick={toggleVoice}>
+              {voiceEnabled ? 
+                <Volume2 size={18} className="cursor-pointer text-vastu-cream hover:text-vastu-gold transition-colors" /> : 
+                <VolumeX size={18} className="cursor-pointer text-vastu-cream hover:text-vastu-gold transition-colors" />
+              }
+            </div>
+          </div>
         </div>
         
         <CardContent className="flex-1 overflow-y-auto p-4">
