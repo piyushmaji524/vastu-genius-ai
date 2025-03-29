@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, Github } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-vastu-maroon to-vastu-brown text-vastu-cream py-8 mt-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
             <h3 className="text-xl font-yatra mb-4">वास्तु जीनियस के बारे में</h3>
@@ -49,10 +49,31 @@ const Footer = () => {
             </div>
             <p className="mt-4 text-sm">contact@vastugenius.com</p>
           </div>
+
+          {/* Legal Pages - New Section */}
+          <div>
+            <h3 className="text-xl font-yatra mb-4">कानूनी पृष्ठ</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/terms" className="hover:text-vastu-gold transition-colors">उपयोग की शर्तें</Link></li>
+              <li><Link to="/privacy" className="hover:text-vastu-gold transition-colors">गोपनीयता नीति</Link></li>
+              <li><Link to="/disclaimer" className="hover:text-vastu-gold transition-colors">अस्वीकरण</Link></li>
+              <li><Link to="/cookies" className="hover:text-vastu-gold transition-colors">कुकीज़ नीति</Link></li>
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-vastu-cream/20 mt-8 pt-6 text-center text-sm">
           <p>&copy; {currentYear} वास्तु जीनियस AI। सर्वाधिकार सुरक्षित।</p>
+          <p className="mt-2">
+            <a 
+              href="https://github.com/piyushmaji524" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 hover:text-vastu-gold transition-colors"
+            >
+              <Github size={16} /> विकसित — पीयूष माजी
+            </a>
+          </p>
         </div>
       </div>
     </footer>

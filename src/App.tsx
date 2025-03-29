@@ -10,6 +10,10 @@ import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import PrinciplesPage from "./pages/PrinciplesPage";
 import AssistantPage from "./pages/AssistantPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import DisclaimerPage from "./pages/DisclaimerPage";
+import CookiesPage from "./pages/CookiesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +31,13 @@ const App = () => (
           <Route path="/blog/:id" element={<BlogDetailPage />} />
           <Route path="/principles" element={<PrinciplesPage />} />
           <Route path="/assistant" element={<AssistantPage />} />
+          
+          {/* Legal Pages */}
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/disclaimer" element={<DisclaimerPage />} />
+          <Route path="/cookies" element={<CookiesPage />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
