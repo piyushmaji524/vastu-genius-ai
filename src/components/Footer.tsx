@@ -1,13 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Github } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-gradient-to-r from-vastu-maroon to-vastu-brown text-vastu-cream py-8 mt-12">
+  return <footer className="bg-gradient-to-r from-vastu-maroon to-vastu-brown text-vastu-cream py-8 mt-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
@@ -47,7 +43,7 @@ const Footer = () => {
                 <Mail size={20} />
               </a>
             </div>
-            <p className="mt-4 text-sm">contact@vastugenius.com</p>
+            <p className="mt-4 text-sm">contact@piyushmaji.com</p>
           </div>
 
           {/* Legal Pages */}
@@ -72,19 +68,12 @@ const Footer = () => {
         <div className="border-t border-vastu-cream/20 mt-8 pt-6 text-center text-sm">
           <p>&copy; {currentYear} वास्तु जीनियस AI। सर्वाधिकार सुरक्षित।</p>
           <p className="mt-2">
-            <a 
-              href="https://github.com/piyushmaji524" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 hover:text-vastu-gold transition-colors"
-            >
+            <a href="https://github.com/piyushmaji524" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:text-vastu-gold transition-colors">
               <Github size={16} /> विकसित — पीयूष माजी
             </a>
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

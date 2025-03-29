@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-
 const Hero = () => {
-  return (
-    <div className="bg-gradient-to-b from-vastu-cream to-white vastu-pattern py-16 md:py-24">
+  return <div className="bg-gradient-to-b from-vastu-cream to-white vastu-pattern py-16 md:py-24">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <div className="mb-6 flex justify-center">
@@ -16,7 +13,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-3xl md:text-5xl font-yatra mb-4 text-vastu-deepred">
-            अपने घर और जीवन के लिए <span className="text-vastu-orange">वास्तु जीनियस AI</span>
+            अपने घर और जीवन के लिए <span className="text-vastu-orange">वास्तु जीनियस </span>
           </h1>
           
           <p className="mb-8 text-lg max-w-2xl mx-auto text-gray-700">
@@ -39,8 +36,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Hero;
