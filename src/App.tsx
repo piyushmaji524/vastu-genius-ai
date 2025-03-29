@@ -14,6 +14,10 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import DisclaimerPage from "./pages/DisclaimerPage";
 import CookiesPage from "./pages/CookiesPage";
+import TermsPageEn from "./pages/TermsPageEn";
+import PrivacyPageEn from "./pages/PrivacyPageEn";
+import DisclaimerPageEn from "./pages/DisclaimerPageEn";
+import CookiesPageEn from "./pages/CookiesPageEn";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,11 +36,17 @@ const App = () => (
           <Route path="/principles" element={<PrinciplesPage />} />
           <Route path="/assistant" element={<AssistantPage />} />
           
-          {/* Legal Pages */}
+          {/* Hindi Legal Pages */}
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/disclaimer" element={<DisclaimerPage />} />
           <Route path="/cookies" element={<CookiesPage />} />
+          
+          {/* English Legal Pages */}
+          <Route path="/terms-en" element={<TermsPageEn />} />
+          <Route path="/privacy-en" element={<PrivacyPageEn />} />
+          <Route path="/disclaimer-en" element={<DisclaimerPageEn />} />
+          <Route path="/cookies-en" element={<CookiesPageEn />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

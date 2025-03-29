@@ -50,7 +50,7 @@ const Footer = () => {
             <p className="mt-4 text-sm">contact@vastugenius.com</p>
           </div>
 
-          {/* Legal Pages - New Section */}
+          {/* Legal Pages */}
           <div>
             <h3 className="text-xl font-yatra mb-4">कानूनी पृष्ठ</h3>
             <ul className="space-y-2 text-sm">
@@ -58,6 +58,13 @@ const Footer = () => {
               <li><Link to="/privacy" className="hover:text-vastu-gold transition-colors">गोपनीयता नीति</Link></li>
               <li><Link to="/disclaimer" className="hover:text-vastu-gold transition-colors">अस्वीकरण</Link></li>
               <li><Link to="/cookies" className="hover:text-vastu-gold transition-colors">कुकीज़ नीति</Link></li>
+              <li className="mt-2 pt-2 border-t border-vastu-cream/20">
+                <span className="text-xs">English versions:</span>
+              </li>
+              <li><Link to="/terms-en" className="hover:text-vastu-gold transition-colors text-xs">Terms of Use</Link></li>
+              <li><Link to="/privacy-en" className="hover:text-vastu-gold transition-colors text-xs">Privacy Policy</Link></li>
+              <li><Link to="/disclaimer-en" className="hover:text-vastu-gold transition-colors text-xs">Disclaimer</Link></li>
+              <li><Link to="/cookies-en" className="hover:text-vastu-gold transition-colors text-xs">Cookies Policy</Link></li>
             </ul>
           </div>
         </div>
