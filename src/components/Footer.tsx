@@ -43,7 +43,7 @@ const Footer = () => {
                 <Mail size={20} />
               </a>
             </div>
-            <p className="mt-4 text-sm">contact@piyushmaji.com</p>
+            <p className="mt-4 text-sm">contact@vastuai.online</p>
           </div>
 
           {/* Legal Pages */}
