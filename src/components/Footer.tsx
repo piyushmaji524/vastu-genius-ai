@@ -29,20 +29,7 @@ const Footer = () => {
           {/* Connect */}
           <div>
             <h3 className="text-xl font-yatra mb-4">हमसे जुड़ें</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-vastu-gold transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="hover:text-vastu-gold transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="hover:text-vastu-gold transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="mailto:contact@vastugenius.com" className="hover:text-vastu-gold transition-colors">
-                <Mail size={20} />
-              </a>
-            </div>
+            
             <p className="mt-4 text-sm">contact@vastuai.online</p>
           </div>
 
